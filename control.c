@@ -37,7 +37,11 @@ int create(){
 }
 
 int view(){
-  file = open("story.txt", O_RDONLY);
+  int file = open("story.txt", O_RDONLY);
+  char text[1000];
+  read(file, text, 1000);
+  printf("%s\n", text);
+  close(file);
   return 1;
 }
 
