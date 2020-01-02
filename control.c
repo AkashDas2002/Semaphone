@@ -40,7 +40,13 @@ int view(){
   int file = open("story.txt", O_RDONLY);
   char text[1000];
   read(file, text, 1000);
-  printf("The story so far:\n%s\n", text);
+  char new[1000];
+  int i = 0;
+  while (text[i] != NULL){
+    new[i] = text[i];
+    i++;
+  }
+  printf("The story so far:\n%s\n", new);
   close(file);
   return 1;
 }
