@@ -40,6 +40,9 @@ int view(){
   int file = open("story.txt", O_RDONLY);
   char text[1000];
   read(file, text, 1000);
+  if (strlen(text) > 0) {
+    *(strrchr(text, '\n')+1) = '\0';
+  }
   printf("The story so far:\n%s\n", text);
   close(file);
   return 1;
@@ -50,6 +53,10 @@ int removal(){
   int file = open("story.txt", O_RDONLY);
   char text[1000];
   read(file, text, 1000);
+  if (strlen(text) > 0) {
+    *(strrchr(text, '\n')+1) = '\0';
+  }
+
   printf("The story so far:\n%s\n", text);
   close(file);
 
