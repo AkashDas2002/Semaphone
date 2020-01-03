@@ -53,6 +53,17 @@ int view(){
 
 int removal(){
   printf("trying to get in\n");
+  int file = open("story.txt", O_RDONLY);
+  char text[1000];
+  read(file, text, 1000);
+  char new[1000];
+  int i = 0;
+  while (text[i] != NULL){
+    new[i] = text[i];
+    i++;
+  }
+  printf("The story so far:\n%s\n", new);
+  close(file);
 
   shmid = shmget(SHKEY, 1000, 0);
   shmctl(shmid, IPC_RMID, 0);
