@@ -11,7 +11,7 @@ int main(){
   semop(semid, &sb, 1);
 
 
-  shmid = shmget(SHKEY, 1000, IPC_CREAT | 0644);
+  shmid = shmget(SHKEY, 1000, 0);
   data = shmat(shmid, 0, 0);
 
   printf("Last addition: %s\n", data);
