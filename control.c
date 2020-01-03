@@ -56,14 +56,11 @@ int removal(){
   int file = open("story.txt", O_RDONLY);
   char text[1000];
   read(file, text, 1000);
-  char new[1000];
-  int i = 0;
-  while (text[i] != NULL){
-    new[i] = text[i];
-    i++;
+  if (strlen(text) > 0) {
+    *(strrchr(text, '\n')+1) = '\0';
   }
-  new[strlen(new) - 1] = 0;
-  printf("The story so far:\n%s\n", new);
+
+  printf("The story so far:\n%s\n", text);
   close(file);
 
   shmid = shmget(SHKEY, 1000, 0);
