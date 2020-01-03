@@ -62,6 +62,7 @@ int removal(){
     new[i] = text[i];
     i++;
   }
+  new[strlen(new) - 1] = 0;
   printf("The story so far:\n%s\n", new);
   close(file);
 
