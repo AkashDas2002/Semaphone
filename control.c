@@ -39,6 +39,7 @@ int create(){
 int view(){
   int file = open("story.txt", O_RDONLY);
   char text[1000];
+  text[0] = '\0';
   read(file, text, 1000);
   if (strlen(text) > 0) {
     *(strrchr(text, '\n')+1) = '\0';
@@ -52,6 +53,7 @@ int removal(){
   printf("trying to get in\n");
   int file = open("story.txt", O_RDONLY);
   char text[1000];
+  text[0] = '\0';
   read(file, text, 1000);
   if (strlen(text) > 0) {
     *(strrchr(text, '\n')+1) = '\0';
